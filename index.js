@@ -11,7 +11,7 @@ exports.handler = async function (event) {
     });
     await client.connect();
     let results = await client.query(`INSERT INTO public."ratings"(
-      restaurant_id, comment, name)
+      restaurant_id, rating)
       VALUES (${event.restaurant_id},'${event.rating}')
       RETURNING rating_id;`);
 
