@@ -10,7 +10,7 @@ exports.handler = async function (event) {
       database: process.env.DATABASE_NAME
     });
     await client.connect();
-    let results = await client.query(`INSERT INTO public."ratings"(
+    let results = await client.query(`INSERT INTO public."rating"(
       restaurant_id, rating)
       VALUES (${event.restaurant_id},'${event.rating}')
       RETURNING rating_id;`);
